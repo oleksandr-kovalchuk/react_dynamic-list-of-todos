@@ -33,7 +33,6 @@ export const TodoFilter: React.FC<Props> = ({
 
   return (
     <form className="field has-addons">
-      {/* Filter Dropdown */}
       <p className="control">
         <span className="select">
           <select
@@ -48,21 +47,20 @@ export const TodoFilter: React.FC<Props> = ({
         </span>
       </p>
 
-      {/* Search Input */}
       <p className="control is-expanded has-icons-left has-icons-right">
         <input
-          value={query}
           data-cy="searchInput"
           type="text"
           className="input"
           placeholder="Search..."
+          value={query}
           onChange={handleQueryChange}
         />
         <span className="icon is-left">
           <i className="fas fa-magnifying-glass" />
         </span>
 
-        {query.length > 0 && (
+        {query.length && (
           <span className="icon is-right" style={{ pointerEvents: 'all' }}>
             <button
               data-cy="clearSearchButton"

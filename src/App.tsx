@@ -17,7 +17,7 @@ export const App: React.FC = () => {
 
   useEffect(() => {
     getTodos()
-      .then(setAllTodos)
+      .then(todos => setAllTodos(todos))
       .finally(() => setIsLoading(false));
   }, []);
 

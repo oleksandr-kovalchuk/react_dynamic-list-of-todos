@@ -80,7 +80,7 @@ export const TodoList: React.FC<Props> = ({ todos }) => {
         </tbody>
       </table>
 
-      {Boolean(isTodoModal) && (
+      {!!isTodoModal && (
         <TodoModal
           todoId={isTodoModal as number}
           todos={todos}
