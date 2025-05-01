@@ -4,7 +4,7 @@ type Props = {
   currentFilter: string;
   setFilter: (filter: string) => void;
   query: string;
-  setQuery: (q: string) => void;
+  setQuery: (query: string) => void;
 };
 
 export const TodoFilter: React.FC<Props> = ({
@@ -56,11 +56,12 @@ export const TodoFilter: React.FC<Props> = ({
           value={query}
           onChange={handleQueryChange}
         />
+
         <span className="icon is-left">
           <i className="fas fa-magnifying-glass" />
         </span>
 
-        {query.length && (
+        {query.length > 0 && (
           <span className="icon is-right" style={{ pointerEvents: 'all' }}>
             <button
               data-cy="clearSearchButton"

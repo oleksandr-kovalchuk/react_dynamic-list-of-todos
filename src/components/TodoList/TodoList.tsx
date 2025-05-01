@@ -8,7 +8,7 @@ type Props = {
 };
 
 export const TodoList: React.FC<Props> = ({ todos }) => {
-  const [isTodoModal, setIsTodoModal] = useState<null | number>(null);
+  const [isTodoModal, setIsTodoModal] = useState<number | null>(null);
 
   const handleCloseModal = useCallback(() => {
     setIsTodoModal(null);
@@ -38,11 +38,10 @@ export const TodoList: React.FC<Props> = ({ todos }) => {
           {todos.map(({ id, title, completed }) => (
             <tr data-cy="todo" key={id}>
               <td className="is-vcentered">{id}</td>
-
               <td className="is-vcentered">
                 {completed && (
                   <span className="icon" data-cy="iconCompleted">
-                    <i className="fas fa-check"></i>
+                    <i className="fas fa-check" />
                   </span>
                 )}
               </td>
@@ -80,9 +79,9 @@ export const TodoList: React.FC<Props> = ({ todos }) => {
         </tbody>
       </table>
 
-      {!!isTodoModal && (
+      {isTodoModal && (
         <TodoModal
-          todoId={isTodoModal as number}
+          todoId={isTodoModal}
           todos={todos}
           onClose={handleCloseModal}
         />
